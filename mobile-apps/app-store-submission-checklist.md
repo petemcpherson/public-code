@@ -1,173 +1,178 @@
-# App Store Review Pre-Submission Checklist  
-_For Indie Developers Shipping Simple Utility Apps (like **Yeet My Pics**)_
+# 📲 App Store Review Pre-Submission Checklist  
+_For indie developers shipping simple, utility-style iOS apps_
 
-This checklist contains everything you should verify **before tapping “Submit for Review.”**  
-Following these steps dramatically reduces rejection risk and speeds up approval.
+This checklist covers everything to verify **before you hit “Submit for Review.”**  
+Use it to avoid the most common rejections and speed up approval.
 
 ---
 
-## ✅ 1. Functionality & UX (Most Common Rejection Category)
+## ✅ 1. Functionality & UX (Most Common Rejection Reason)
 
-- Test the **exact production build** on a real device (not simulator).
-- Ensure all core actions work:
-  - Photo loading  
-  - Swiping to keep/delete  
-  - Undo or confirmation steps (if implemented)  
-  - Settings, stats, onboarding
-- [x] App must handle **denied permissions** gracefully:
-  - If the user denies Photos access, show a helpful message + a button linking to Settings.
-- Remove any **unfinished features**, disabled buttons, placeholder screens, or lorem ipsum.
-- No dead ends — every screen must offer a way back or forward.
+- Test the **actual production build (Archive → TestFlight)** on a real device.
+- Confirm that every core action works **end-to-end**.
+- Handle **denied permissions** gracefully with informative screens + a Settings deep link.
+- Remove any:
+  - Placeholder screens  
+  - Disabled buttons  
+  - Unfinished features  
+  - Lorem ipsum  
+- No dead ends — every screen must provide a path forward/back.
 - No crashes during:
   - First launch  
-  - Permission request  
-  - Swiping through many photos  
-  - Returning from background  
-  - Switching albums or photo access levels (if applicable)
+  - Permission prompts  
+  - Heavy content loading  
+  - App resume from background  
+  - Network failures (if applicable)
 
 ---
 
 ## 🔐 2. Privacy & Permissions
 
-- Ensure your **NSPhotoLibraryUsageDescription** text is clear and truthful.  
-  Example:
-  > “This app needs access to your photos so you can review, keep, or delete images to free up iCloud storage.”
-
-- Only include permissions you actually use.
-- Verify that your **App Privacy Nutrition Label** accurately states:
-  - What data is collected  
-  - Whether data is linked to the user  
-  - Whether it is used for tracking  
-- If collecting **no data at all**, confirm that the label says so.
+- All permission usage descriptions (e.g., **NSPhotoLibraryUsageDescription**) must be:
+  - **Clear**
+  - **Accurate**
+  - **Non-generic**
+- Only request permissions you truly use.
+- Double-check your **Privacy Nutrition Label**:
+  - Data collected  
+  - Linked to user?  
+  - Used for tracking?  
+- If you collect nothing, ensure the label reflects **no data collection**.
 
 ---
 
-## 📱 3. App Store Metadata
+## 🛍️ 3. App Store Metadata
 
 ### App Name, Subtitle, Description
-- Matches what the app actually does.
-- No unverifiable claims (“best,” “fastest,” etc.).
-- No competitor names (e.g., “Google Photos,” “iCloud Cleanup,” etc.)
+- Reflect what the app actually does.  
+- Avoid unverifiable claims (“best,” “#1,” “fastest”).  
+- No competitor or trademark names.
 
 ### Screenshots
-- Must be taken **from the actual version you are submitting**.
-- No misleading UI or features that don’t exist.
-- No copyrighted images unless you own the rights.
+- Must match the **exact build** you’re submitting.
+- No mockups of features you haven’t implemented.
+- No copyrighted or unlicensed imagery.
 
 ### Keywords
-- Avoid trademarked product names.
-- Keep them relevant to your app’s core function.
+- Only include relevant, non-trademarked terms.
 
 ### App Preview Video (optional)
-- Must show only in-app content.
-- No device frames or external hardware shots.
+- Only show in-app behavior.  
+- No device frames or external footage.
 
 ---
 
-## 🔗 4. Privacy Policy URL & Support URL
+## 🔗 4. Required URLs (Privacy Policy & Support)
 
-Your app **will be rejected instantly** if either of these fail to load.
+A broken URL = **automatic rejection**.
 
-- Privacy Policy URL:
-  - Must load correctly on mobile + Safari.
-  - Must match what your app actually does regarding data.
-- Support URL:
-  - Should show contact information and/or a help page.
-  - Cannot be blank, a placeholder, or a redirect loop.
-
----
-
-## 💵 5. In-App Purchases (If Applicable)
-
-If you’re using a subscription or a lifetime unlock:
-
-- All IAPs must be **Approved** in App Store Connect.
-- Product IDs must match exactly in code.
-- Test with **Sandbox accounts**:
-  - Purchase flow works
-  - Restore purchases works
-  - UI updates correctly after purchase
-- No references to IAP if you’ve removed or disabled it.
+- **Privacy Policy URL**
+  - Must load quickly on Safari.
+  - Content must describe your actual data practices.
+- **Support URL**
+  - Provide real help/contact info (FAQ, email, etc.).
+  - No placeholders or empty pages.
 
 ---
 
-## 📝 6. App Review Notes (Highly Recommended)
+## 💵 5. In-App Purchases (If Your App Includes Them)
 
-Include a short note to the review team under **App Review Information**:
+- All products must show **“Approved”** in App Store Connect.
+- Product IDs must match exactly in your code (case-sensitive).
+- Test using **TestFlight + Sandbox accounts**:
+  - Purchase flow  
+  - Restore purchases  
+  - UI state after purchase  
+- Remove any UI references to IAP you’re not using.
+
+---
+
+## 📝 6. App Review Notes (Optional but Highly Recommended)
+
+Use **App Review Information → Notes** to explain your app clearly.
 
 Dear App Review Team,
 
-This app allows users to swipe through their photo library to quickly
-keep or delete photos in order to free up storage space.
+This app provides a simple utility for users to __________.
 
-Key behaviors:
-– Requests photo library access on first launch
-– Swiping deletes or keeps photos
-– No accounts, no data collection
+Key Behaviors:
+– Requests ______ permission on first launch
+– Core actions: __________
+– No data collection / or specify what you collect
 
-Please let me know if you need demo info or additional clarification.
+Let me know if you need demo info, credentials, or clarification.
 Thank you!
 
 
-This greatly reduces confusion when reviewers test apps that rely heavily on system permissions.
+This prevents confusion for apps relying on permissions, gestures, or non-obvious flows.
 
 ---
 
-## 📱 7. Device & Version Testing
+## 📱 7. Device, OS, and Scenario Testing
 
-Test the build on:
+Test across:
 
-- At least one real iPhone (newer model preferred)
-- iOS 17 and iOS 18 if available
-- Different photo library sizes:
-  - Empty  
-  - Very large  
-  - “Selected Photos Only” permission
-
-Make sure the app responds correctly when permissions or content change.
+- At least one real iPhone (ideally a recent model)
+- Latest iOS version (and one prior, if available)
+- Different user states:
+  - No content  
+  - Lots of content  
+  - Restricted permissions  
+  - Airplane mode  
+  - Slow/unstable network (if applicable)
 
 ---
 
-## ⚙️ 8. Performance, Errors, and Edge Cases
+## ⚙️ 8. Performance, Responsiveness & Edge Cases
 
-- App should behave correctly in:
+- Test in:
   - Low Power Mode  
-  - Airplane mode (if your app does not require internet)  
-  - Low battery state  
-  - Limited storage situations  
-- Swiping should remain responsive even with:
-  - Thousands of photos  
-  - Rapid swiping  
-  - Switching between apps
+  - Low storage  
+  - Low battery  
+  - App switching  
+- UI should remain responsive during:
+  - Rapid actions  
+  - High-volume interactions  
+  - Large data sets  
+- No debug logs, console spam, or temporary UI.
 
 ---
 
 ## 🧹 9. Content & Compliance
 
-- No offensive, defamatory, adult, or violent content.
-- No deceptive screenshots or misleading copy.
-- App icon should be:
-  - Simple  
+- No offensive, sexual, discriminatory, or violent content.
+- No misleading screenshots or exaggerated claims.
+- App icon must be:
   - Original  
-  - Not resembling Apple’s system icons
+  - Simple  
+  - Not mimicking Apple icons
 
 ---
 
-## 📦 10. Final Build Submission Checklist
+## 📦 10. Build & Submission Prep
 
-Before archiving/uploading:
+Before uploading:
 
 - Increment **Version** and **Build** numbers.
-- Archive using Xcode → Product → Archive.
-- Ensure no debug logs, dev UI, or test data remain.
-- Verify your **App Icon** set is fully populated in all required sizes.
-- Check your app’s **Settings.bundle** (if used) for accuracy.
-- Re-test the archived build using TestFlight before submitting.
+- Archive via Xcode → Product → Archive.
+- Confirm:
+  - Correct bundle ID  
+  - Proper signing & provisioning  
+  - App Icon set is complete  
+  - No debug/test data stored  
+- Install & test the **archived build** via TestFlight before submitting.
+- Ensure your App Store Connect entry is 100% filled out:
+  - Description  
+  - Screenshots  
+  - Keywords  
+  - URLs  
+  - IAP entries (if any)
 
 ---
 
-## 🎉 That’s It — You’re Ready to Ship!
+## 🚀 You’re Ready to Ship!
 
-Following this checklist removes the overwhelming majority of common app review issues for indie apps involving system permissions.
+This checklist covers the most common rejection points for indie, utility, and simple content-based apps.  
+If everything checks out, hit **Submit for Review** with confidence.
 
-Good luck — and congrats on shipping! 🚀  
+Congrats on shipping your app! 🎉

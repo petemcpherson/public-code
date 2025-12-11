@@ -66,7 +66,7 @@ Your bundle ID is `com.yeetmypics.yeetMyPics`. This must match what you register
 
 ```bash
 # Navigate to project root
-cd /Users/petemcpherson/Coding\ Projects/yeet_my_pics
+cd ~/path/to/your/project
 
 # Clean previous builds (optional but recommended)
 flutter clean
@@ -177,7 +177,7 @@ version: 1.0.1+2  # Increment version and/or build number
 
 ```bash
 # Navigate to project root
-cd /Users/petemcpherson/Coding\ Projects/yeet_my_pics
+cd ~/path/to/your/project
 
 # Clean previous builds
 flutter clean
